@@ -1,10 +1,12 @@
-import {app, BrowserWindow, screen} from 'electron';
+import {app, BrowserWindow, screen,Menu} from 'electron';
 import * as path from 'path';
 import * as fs from 'fs';
 
 let win: BrowserWindow | null = null;
 const args = process.argv.slice(1),
   serve = args.some(val => val === '--serve');
+  const { ipcRenderer } = require('electron');
+
 
 function createWindow(): BrowserWindow {
 
@@ -12,16 +14,20 @@ function createWindow(): BrowserWindow {
 
   // Create the browser window.
   win = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: size.width,
-    height: size.height,
+  
+    width: 1208,
+    height: 800,
+    frame: false ,
+    autoHideMenuBar:true,
     webPreferences: {
       nodeIntegration: true,
       allowRunningInsecureContent: (serve),
       contextIsolation: false,
+      
     },
   });
+  
+
 
   if (serve) {
     const debug = require('electron-debug');
@@ -36,6 +42,7 @@ function createWindow(): BrowserWindow {
     if (fs.existsSync(path.join(__dirname, '../dist/index.html'))) {
        // Path when running electron in local folder
       pathIndex = '../dist/index.html';
+     
     }
 
     const url = new URL(path.join('file:', __dirname, pathIndex));
@@ -49,7 +56,7 @@ function createWindow(): BrowserWindow {
     // when you should delete the corresponding element.
     win = null;
   });
-
+  win.webContents.openDevTools();
   return win;
 }
 

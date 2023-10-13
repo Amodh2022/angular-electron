@@ -1,7 +1,75 @@
-<div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
+<div *ngIf="alterdiv" style="height: 92px; width: 192px;">
+    <div class="factor" style="width: 120px;height: 120px;     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+">
+        <div class="preview" style="font-size: 6px; text-transform: capitalize;">
+            <h3 style="color: white; text-wrap: nowrap;text-align: center; color: #8AE319;margin: 0;">ಬಿಬಿಎಂಪಿ</h3>
+        </div>
+        <div class="preview" style="font-size: 6px; text-transform: capitalize; ">
+            <h3 style="color: white;text-align: center;margin: 0 0 0 0; font-weight: 700;color: #0CC5FF;">ನೀರಿನ ಗುಣಮಟ್ಟ
+                ಮಾನಿಟರಿಂಗ್ ಡೇಟಾ</h3>
+            <p style="color: white;text-align: center;font-weight: 600;margin: 0;">{{dayTranslations[currentDay]}} 📆{{
+                currentDate | date:'dd-MM-yy' }}⌚{{ currentTime | date:'HH:mm' }}{{amPm}} </p>
+            <div style="flex: 0 0 0%; font-size: 8px; color: #8AE319;text-align: center;font-weight: 700;">ಇಬ್ಬಲೂರು ಕೆರೆ
+            </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; color: #15E71E;">
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <div
+                    style="width: max-content;font-size: 14px;padding: 4px;border-right: 1px solid #8B8888;border-bottom: 1px solid #8B8888;text-align: center">
+                    {{myph}}</div>
+                <div
+                    style="width: max-content; font-size: 8px;padding:12px; color: white;border-right: 1px solid #8B8888;text-align: center">
+                    PH</div>
+            </div>
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <div
+                    style="width: max-content;font-size: 14px;padding: 4px;border-bottom: 1px solid #8B8888;text-align: center;">
+                    {{Do}}<span style="font-size: 8px;">mg/L</span></div>
+                <div style="width: max-content; font-size: 8px;padding-top: 12px; color: white;text-align: center">DO
+                </div>
+            </div>
+        </div>
 
-  <a routerLink="/detail">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
+    </div>
+</div>
+
+<div *ngIf="!alterdiv">
+    <div class="factor" style="width: 120px;height: 120px;     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+">
+        <div class="preview" style="font-size: 6px; text-transform: capitalize;">
+            <h3 style="color: white; text-wrap: nowrap;text-align: center; color: #8AE319;margin: 0;">BBMP</h3>
+        </div>
+        <div class="preview" style="font-size: 6px; text-transform: capitalize; ">
+            <h3 style="color: white;text-align: center;margin: 0 0 0 0; font-weight: 700;color: #0CC5FF;">Water Quality
+                Monitering Data</h3>
+            <p style="color: white;text-align: center;font-weight: 600;margin: 0;">{{currentDay}} 📆{{ currentDate |
+                date:'dd-MM-yy' }}⌚{{ currentTime | date:'HH:mm' }}{{amPm}}</p>
+            <div style="flex: 0 0 0%; font-size: 8px; color: #8AE319;text-align: center;font-weight: 700;">IBBLUR LAKE
+            </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; color: #15E71E;">
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <div
+                    style="width: max-content;font-size: 14px;padding: 4px;border-right: 1px solid #8B8888;border-bottom: 1px solid #8B8888;text-align: center">
+                    {{myph}}</div>
+                <div
+                    style="width: max-content; font-size: 8px;padding:12px; color: white;border-right: 1px solid #8B8888;text-align: center">
+                    PH</div>
+            </div>
+            <div style="display: flex;flex-direction: column; align-items: center;">
+                <div
+                    style="width: max-content;font-size: 14px;padding: 4px;border-bottom: 1px solid #8B8888;text-align: center;">
+                    {{Do}} <span style="font-size: 8px;">mg/L</span></div>
+                <div style="width: max-content; font-size: 8px;padding-top: 12px; color: white;text-align: center">DO
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
